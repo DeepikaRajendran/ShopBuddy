@@ -1,30 +1,20 @@
 import * as React from 'react';
 import { Image, Platform, StyleSheet, Text, TouchableOpacity, View, SafeAreaView, ImageBackground } from 'react-native';
 
-
-import color from './../config/color';
+import AppButton from './../components/AppButton';
 
 export default function HomeScreen() {
   return (
-
-
-    <ImageBackground style={styles.background} source={require('./../assets/images/background.jpg')} >
+    <ImageBackground style={styles.background} blurRadius={3} source={require('./../assets/images/background.jpg')} >
 
       <View style={styles.logoContainer}>
         <Image style={styles.image} source={require('./../assets/images/logo-red.png')}></Image>
-        <Text >Sell what you don't need</Text>
+        <Text style={styles.tagline}>Sell what you don't need</Text>
       </View>
 
-      <View style={{
-        backgroundColor: color.primary,
-        width: "100%",
-        height: 70
-      }}></View>
-      <View style={{
-        backgroundColor: color.secondary,
-        width: "100%",
-        height: 70
-      }}></View>
+      <AppButton title={'Login'} onPress={() => console.log("Tapped Login")} />
+      <AppButton title={'Register'} color="secondary" onPress={() => console.log("Tapped Register")} />
+
     </ImageBackground>
 
 
@@ -134,12 +124,17 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     justifyContent: 'flex-end',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   logoContainer: {
     position: 'absolute',
     top: 50,
     alignItems: 'center'
+  },
+  tagline: {
+    fontSize: 20,
+    fontWeight: "600",
+    paddingVertical: 20
   },
   image: {
     width: 100,
@@ -152,6 +147,7 @@ const styles = StyleSheet.create({
   homeScreenFilename: {
     marginVertical: 7,
   },
+
   codeHighlightText: {
     color: 'rgba(96,100,109, 0.8)',
   },

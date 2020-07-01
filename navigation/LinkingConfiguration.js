@@ -8,7 +8,9 @@ export default {
       screens: {
         Home: 'home',
         Links: 'links',
-        login: 'login'
+        Login: 'login',
+        Register: 'register',
+        OtpVerification: 'otpverification'
       },
     },
   },

@@ -1,20 +1,21 @@
 import * as React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { TextInput } from 'react-native';
-import { useState } from 'react';
+import { useNavigation } from '@react-navigation/core';
 
-import color from './../config/color';
+import colors from './../config/colors';
 
-export default function HomeScreen() {
-    const [phoneNum, setPhoneNum] = useState('');
+export default function HomeScreen({ navigation }) {
+    const navigate = useNavigation();
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
-                <Text style={styles.verificationText}>Sign In</Text>
+                <Text style={styles.titleText}>Sign In</Text>
 
                 {/* <TextInput textContentType="telephoneNumber"
                     placeholder="Enter Phone Number"
-                    placeholderTextColor={color.whiteWithOpacity}
+                    placeholderTextColor={colors.whiteWithOpacity}
                     textalign='center'
                     style={styles.phoneNumber}
                     onChangeText={text => setPhoneNum(text)}
@@ -24,19 +25,25 @@ export default function HomeScreen() {
                 <TextInput
                     textContentType="emailAddress"
                     placeholder="Email"
-                    placeholderTextColor={color.whiteWithOpacity}
+                    placeholderTextColor={colors.whiteWithOpacity}
                     textalign='center'
                     style={styles.field}
                 />
                 <TextInput
                     textContentType="password"
                     placeholder="Password"
-                    placeholderTextColor={color.whiteWithOpacity}
+                    placeholderTextColor={colors.whiteWithOpacity}
                     textalign='center'
                     style={styles.field}
                     secureTextEntry={true}
                 />
             </View>
+            {/* <Button
+                title="Go to Jane's profile"
+                onPress={
+                    navigation.navigate('Register')
+                }
+            /> */}
             <View style={styles.buttons}>
                 <TouchableOpacity
                     style={styles.signInButton}
@@ -46,7 +53,7 @@ export default function HomeScreen() {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.registerButton}
-                    onPress={handlePress}
+                    onPress={() => navigate.navigate('Register')}
                 >
                     <Text style={[styles.setColorWhite, styles.setButtonDecoration]}> Register </Text>
                 </TouchableOpacity>
@@ -57,28 +64,28 @@ export default function HomeScreen() {
 }
 function handlePress() {
     console.log("verified")
+    navigator.navigation
 }
 
 const styles = StyleSheet.create({
     setButtonDecoration: {
-        fontSize: '14px',
+        fontSize: 14,
         fontStyle: 'normal',
         fontWeight: '800',
     },
     setColorWhite: {
-        color: color.white,
+        color: colors.white,
 
     },
     setColorBlue: {
-        color: color.blue
+        color: colors.blue
     },
     container: {
         flex: 1,
-        backgroundColor: color.blue,
+        backgroundColor: colors.blue,
         boxShadow: '0px 4px 10px rgba(45, 137, 204, 0.2)',
         justifyContent: 'center',
         alignItems: 'center',
-        fontFamily: 'Muli'
     },
     content: {
         flex: 0.5,
@@ -92,12 +99,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        fontSize: 20,
-        fontWeight: 'bold',
     },
-    verificationText: {
+    titleText: {
         fontSize: '24px',
-        color: color.white,
+        color: colors.white,
     },
     phoneNumber: {
         width: '50%',
@@ -109,25 +114,23 @@ const styles = StyleSheet.create({
     signInButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: color.white,
+        backgroundColor: colors.white,
         width: '83px',
         height: '42px',
         borderRadius: '5px',
-        color: color.blue
     },
     registerButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: color.blue,
+        backgroundColor: colors.blue,
         width: '83px',
         height: '42px',
         borderRadius: '5px',
         border: '1px solid #fff',
-        borderColor: color.white,
+        borderColor: colors.white,
         borderWidth: '2.5px'
     },
     field: {
-        color: color.white,
         width: '70%',
         height: '42px',
         backgroundColor: 'rgba(255, 255, 255, 0.38)',

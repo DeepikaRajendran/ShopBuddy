@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, View, Text, TextInput, Picker } from 'react-native';
 import { useState } from 'react';
 
-import color from '../config/color';
+import colors from '../config/colors';
 
-export default function RegisterScreen() {
+export default function RegisterScreen({ navigation }) {
     // const [fields, setFields] = useState({ name: '', email: '' });
     const [gender, setGender] = useState("female");
 
@@ -16,47 +16,47 @@ export default function RegisterScreen() {
                     <TextInput
                         textContentType="name"
                         placeholder="Name"
-                        placeholderTextColor={color.whiteWithOpacity}
+                        placeholderTextColor={colors.whiteWithOpacity}
                         textalign='center'
                         style={styles.field}
                     />
                     <TextInput
                         textContentType="emailAddress"
                         placeholder="Email"
-                        placeholderTextColor={color.whiteWithOpacity}
+                        placeholderTextColor={colors.whiteWithOpacity}
                         textalign='center'
                         style={styles.field}
                     />
                     <TextInput
                         textContentType="sublocality"
                         placeholder="House No/ Flat No"
-                        placeholderTextColor={color.whiteWithOpacity}
+                        placeholderTextColor={colors.whiteWithOpacity}
                         textalign='center'
                         style={styles.field}
                     />
                     <TextInput
                         textContentType="fullStreetAddress"
                         placeholder="Street Name"
-                        placeholderTextColor={color.whiteWithOpacity}
+                        placeholderTextColor={colors.whiteWithOpacity}
                         textalign='center'
                         style={styles.field}
                     />
                     <TextInput
                         textContentType="addressCityAndState"
                         placeholder="City/State"
-                        placeholderTextColor={color.whiteWithOpacity}
+                        placeholderTextColor={colors.whiteWithOpacity}
                         textalign='center'
                         style={styles.field}
                     />
                     <TextInput
                         textContentType="countryName"
                         placeholder="Country"
-                        placeholderTextColor={color.whiteWithOpacity}
+                        placeholderTextColor={colors.whiteWithOpacity}
                         textalign='center'
                         style={styles.field}
                     />
                     <Picker
-                        itemStyle={{ color: color.black, textDecorationColor: color.blue }}
+                        itemStyle={{ color: colors.black, textDecorationColor: colors.blue }}
                         mode='dialog'
                         selectedValue={gender}
                         style={styles.field}
@@ -102,14 +102,14 @@ function showDatePicker() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: color.white
+        backgroundColor: colors.white
     },
     background: {
         position: 'absolute',
         width: '100%',
         height: '95%',
         top: '0px',
-        backgroundColor: color.blue,
+        backgroundColor: colors.blue,
         borderBottomLeftRadius: 170,
     },
     content: {
@@ -118,11 +118,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     titleText: {
-        color: color.white,
+        color: colors.white,
         fontSize: '24px',
     },
     field: {
-        color: color.white,
+        color: colors.white,
         width: '70%',
         height: '42px',
         backgroundColor: 'rgba(255, 255, 255, 0.38)',

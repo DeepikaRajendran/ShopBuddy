@@ -1,14 +1,19 @@
 import * as WebBrowser from 'expo-web-browser';
 import * as React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import color from './../config/color';
+import colors from './../config/colors';
 
 export default function LinksScreen() {
   return (
     <View style={styles.container}>
-      <View style={styles.closeIcon}></View>
-      <View style={styles.openIcon}></View>
+      <View style={styles.closeIcon}>
+        <MaterialCommunityIcons name="close" color="white" size={30} />
+      </View>
+      <View style={styles.openIcon}>
+        <MaterialCommunityIcons name="delete" color="red" size={30} />
+      </View>
       <Image style={styles.image} resizeMode="contain" source={require('./../assets/images/chair.jpg')}></Image>
     </View>
   );
@@ -46,17 +51,11 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   closeIcon: {
-    backgroundColor: color.primary,
-    width: 50,
-    height: 50,
     position: 'absolute',
     top: 20,
     left: 30
   },
   openIcon: {
-    backgroundColor: color.secondary,
-    width: 50,
-    height: 50,
     position: 'absolute',
     top: 20,
     right: 30
