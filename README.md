@@ -1,1 +1,1 @@
-# commune
+# ShopBuddy
